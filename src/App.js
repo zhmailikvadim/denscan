@@ -12,6 +12,7 @@ import {
   TableColumn,
   ShellBar,
 } from "@ui5/webcomponents-react";
+import moment from "moment";
 
 const MOMENT= require( 'moment' );
 
@@ -45,6 +46,14 @@ class App extends Component {
       console.log(this.state.resultArray);
       console.log(this.state.result);
       console.log(qrOne);
+      let qrOld = this.state.qrList[0];
+      let diff;
+      if (qrOld){
+        let a = moment(qrOld.date)
+        let b = moment(qrOne.date)
+        diff = b.diff(a,"seconds");
+        console.log(diff);
+      }
       fetch("https://denscan.belsap.com/insert_qr_sql.php", {
         method: "POST",
         headers: {

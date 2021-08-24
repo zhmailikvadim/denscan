@@ -9,7 +9,7 @@
     "@ui5/webcomponents": "1.0.0-rc.15",
     "@ui5/webcomponents-fiori": "1.0.0-rc.15",
     "@ui5/webcomponents-icons": "1.0.0-rc.15",
-    "@ui5/webcomponents-react": "^0.18.4",
+    "@ui5/webcomponents-react": "^0.18.5",
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "moment": "^2.29.1",
