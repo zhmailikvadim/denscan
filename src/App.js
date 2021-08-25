@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       data: "NoResult",
       delay: 200,
-      result: "No result",
+      result: "Ready",
       qrList: [
         { id: 0, qr_code: "QR_Code_Test", date: "12052012", time: "12:35" },
       ],
@@ -35,33 +35,27 @@ class App extends Component {
   handleScan(result) {
     console.log(this.state.success_add_sql);
     if (result && this.state.success_add_sql) {
-      let success_add_sql = false;
-      this.setState({ success_add_sql });
+      this.setState({ success_add_sql: false });
       let qrList = this.state.qrList;
       let qrOne = {};
       console.log(result);
-      qrOne["qr_code"] = result;
+      qrOne.qr_code = result;
       const date = MOMENT(new Date()).format("YYYY-MM-DD HH:mm:ss");
       console.log(date);
       const time = new Date().toLocaleTimeString();
-      qrOne["date"] = date;
-      qrOne["time"] = time;
+      qrOne.date = date;
+      qrOne.time = time;
       this.setState({ result });
       console.log(qrOne);
       console.log(qrList);
-      let qrOldIndex = this.state.qrList.findIndex(
-        (x) => x.qr_code === qrOne.qr_code
-      );
-      let qrOld = this.state.qrList[qrOldIndex];
+      let qrOld = qrList[qrList.findIndex((x) => x.qr_code === qrOne.qr_code)];
       console.log(qrOld);
       let diff;
       if (qrOld) {
-        let a = moment(qrOld.date);
-        let b = moment(qrOne.date);
-        diff = b.diff(a, "seconds");
+        diff = moment(qrOne.date).diff(moment(qrOld.date), "seconds");
         console.log(diff);
       }
-      if (diff > 30 || !qrOld) {
+      if (diff > 5 || !qrOld) {
         fetch("https://denscan.belsap.com/insert_qr_sql.php", {
           method: "POST",
           headers: {
@@ -77,24 +71,22 @@ class App extends Component {
             console.log(data);
             if (data.success) {
               qrOne.id = data.id;
-              qrList.push(qrOne);
+              qrList.unshift(qrOne);
               qrList.sort((a, b) => {
                 let result;
                 if (a.id > b.id) result = -1;
                 if (a.id < b.id) result = 1;
                 return result;
               });
-              this.setState({ qrList });
-              this.setState({ success_add_sql:true });
+              this.setState({ qrList,success_add_sql: true });
               console.log(this.state.success_add_sql);
             }
           })
           .catch((err) => {
             console.log(err);
           });
-      }
-      else{
-        this.setState({ success_add_sql:true });
+      } else {
+        this.setState({ success_add_sql: true });
       }
     }
   }
@@ -114,10 +106,11 @@ class App extends Component {
         <ShellBar
           logo={
             <img
-              alt="DenScan"
-              src="https://raw.githubusercontent.com/SAP/ui5-webcomponents-react/master/assets/Logo.png"
+              alt = ""
+              src = "http://localhost:3000/pic_time.jpg"
             />
           }
+          secondaryTitle="School time counter"
         ></ShellBar>
         <FlexBox
           style={{ width: "95%", border: "1px" }}
