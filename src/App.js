@@ -37,6 +37,20 @@ class App extends Component {
   }
 
   handleScan(result) {
+
+    fetch("https://denscan.belsap.com/php/crud/select_all_today_qr.php")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      if (data.success) {
+        console.log(data);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
     console.log(this.state.success_add_sql);
     if (result && this.state.success_add_sql) {
       this.setState({ success_add_sql: false });

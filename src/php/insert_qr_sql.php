@@ -13,8 +13,6 @@ error_reporting(E_ALL | E_STRICT);
 // Create connection
 
 
-$json = file_get_contents('php://input');
-
 $data = json_decode(file_get_contents("php://input"));
 
 $qr_code = $data->qr_code;
