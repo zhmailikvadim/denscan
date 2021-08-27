@@ -14,6 +14,10 @@ import {
 } from "@ui5/webcomponents-react";
 import moment from "moment";
 
+//const authToken = '4ddb8b6d5ca7ddbf-86d1772a758fef0d-4a1f4580b44006b5';
+
+//const { ViberClient } = require('messaging-api-viber');
+
 const MOMENT = require("moment");
 
 class App extends Component {
@@ -55,8 +59,25 @@ class App extends Component {
         diff = moment(qrOne.date).diff(moment(qrOld.date), "seconds");
         console.log(diff);
       }
-      if (diff > 5 || !qrOld) {
-        fetch("https://denscan.belsap.com/insert_qr_sql.php", {
+      if (diff > 30 || !qrOld) {
+
+
+        /*fetch("https://denscan.belsap.com/set_webhook.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(qrOne),
+        })
+          .then((res) => {
+            console.log(res);
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data)}); */
+
+
+        fetch("https://denscan.belsap.com/php/crud/insert_qr_sql.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,6 +101,35 @@ class App extends Component {
               });
               this.setState({ qrList,success_add_sql: true });
               console.log(this.state.success_add_sql);
+
+
+             /* const client = new ViberClient({
+                accessToken: authToken,
+                 sender: {
+                  name: 'DenScan',
+                },
+              });
+
+
+              client.setWebhook('https://denscan.belsap.com').catch((error) => {
+                console.log(error); // formatted error message
+                console.log(error.stack); // error stack trace
+                console.log(error.config); // axios request config
+                console.log(error.request); // HTTP request
+                console.log(error.response); // HTTP response
+              });
+
+           
+
+
+
+
+                client.sendText('hEh2QOCKK/e5n4/ajSYBvQ==', 'Hello', {
+                  keyboard: {
+                    defaultHeight: true,
+                  },
+                });*/
+
             }
           })
           .catch((err) => {

@@ -12,12 +12,14 @@
     "@ui5/webcomponents-react": "^0.18.5",
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "messaging-api-viber": "^1.0.4",
     "moment": "^2.29.1",
     "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-qr-reader": "^2.2.1",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "viber-bot": "^1.0.18"
   },
   "scripts": {
     "start": "react-scripts start",

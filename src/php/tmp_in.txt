@@ -1,0 +1,15 @@
+{"event":"webhook","timestamp":1629964470438,"chat_hostname":"SN-CHAT-06_","message_token":5611587399573722790}
+{"event":"message","timestamp":1629964474741,"chat_hostname":"SN-CHAT-17_","message_token":5611587417912141419,"sender":{"id":"hEh2QOCKK/e5n4/ajSYBvQ==","name":"\u0412\u0430\u0434\u0438\u043C \u0416\u043C\u0430\u0439\u043B\u0438\u043A","avatar":"https://media-direct.cdn.viber.com/download_photo?dlid=WuD8fL_dp1xti9tNUyT0MdXvarQn_IMLdIsnr2eq2bCcs_aZtILMuPgVeoxomrYaQg9OsPrUCVGhccfeNz1MXbQpZprybvMAjyYFO_vF63UufOrfdZbA8ouoamh_tUBjK4zJnA&fltp=jpg&imsz=0000","language":"ru-RU","country":"BY","api_version":8},"message":{"text":"123","type":"text"},"silent":false}
+{"event":"delivered","timestamp":1629964475885,"chat_hostname":"SN-CHAT-17_","message_token":5611587421677705323,"user_id":"hEh2QOCKK/e5n4/ajSYBvQ=="}
+{"event":"seen","timestamp":1629964477019,"chat_hostname":"SN-CHAT-17_","message_token":5611587421677705323,"user_id":"hEh2QOCKK/e5n4/ajSYBvQ=="}
+{"event":"delivered","timestamp":1629964496280,"chat_hostname":"SN-CHAT-19_","message_token":5611587421677705323,"user_id":"hEh2QOCKK/e5n4/ajSYBvQ=="}
+
+
+
+
+
+
+
+
+
+
